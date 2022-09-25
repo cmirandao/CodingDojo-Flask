@@ -1,0 +1,13 @@
+*{
+    font-family:sans-serif;
+    width: 700px;
+}
+h1,p{
+    text-align: center;
+}
+img {
+    /* background-color:aquamarine;  */
+    height:100px; 
+    width:100px;
+    margin: 5px;
+}
