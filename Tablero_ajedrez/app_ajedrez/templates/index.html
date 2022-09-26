@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Ajedrez</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <table>
+        {% for x in range(numero1): %}
+            <tr>
+                <!-- color=1 significa que no se le envian parametros de color -->
+                {% if color==1 %}
+                    {% for y in range(numero2): %}
+                        <td class='color{{ (x+y)%2+1 }}'></td>
+                    {% endfor %}
+                {% else %}
+            </tr>
+            <tr>
+                {% for y in range(numero2): %}
+                    {% if x%2==0 %}
+                        {% if y%2==0 %}
+                            <td style="background-color: {{color2}};"></td>
+                        {% else %}
+                            <td style="background-color: {{color1}};"></td>
+                        {% endif %}
+                    {% else %}
+                        {% if y%2==0 %}
+                            <td style="background-color: {{color1}};"></td>
+                        {% else %}
+                            <td style="background-color: {{color2}};"></td>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logica.js') }}"></script>
+    
+</body>
+</html>
