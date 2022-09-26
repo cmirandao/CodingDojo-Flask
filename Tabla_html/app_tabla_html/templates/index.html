@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas HTML</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <table class="table table-hover">
+            <tr class="table-dark text-warning">
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Nombre Completo</td>
+            </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario['first_name'] }}</td>
+            <td>{{ usuario['last_name'] }}</td>
+            <td>{{ usuario['first_name'] }}  {{ usuario['last_name'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logica.js') }}"></script>
+</body>
+</html>
