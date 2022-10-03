@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="album py-5 bg-light text-center">
+        <section class="jumbotron text-center">
+            <h1 class="jumbotron-heading">Contador</h1>
+            <p>{{session['cnt']}}</p>
+            <a class="btn btn-primary btn-lg btn-block" href="/dbl_visit">Add two visits!</a>
+            <a class="btn btn-info btn-lg btn-block" href="/destroy_session">Reset</a>
+        </section>
+        <form action='/visitas' method='post'>
+            <div class="row">
+                <div class="mb-3">
+                    <label for="cant_visitas">Indica cuantas visitas quieres aumentar</label>
+                </div>
+                <div class="mb-3">
+                    <input id="mensaje" type="text" name="cant_visitas" placeholder="" value="" onkeyup="stateHandle()" required>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Suma visitas</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+</body>
+</html>
