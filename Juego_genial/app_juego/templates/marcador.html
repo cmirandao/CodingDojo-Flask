@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Great Number Game</strong>
+                </a>
+                <a class="btn btn-info btn-lg btn-block" href="/volver">Volver</a>
+            </div>
+        </div>
+    </header>
+    <div class="container text-center border-dark rounded">
+        <table class="table text-center">
+            <tr class="table-dark text-warning">
+                <td>Nombre Completo</td>
+                <td>N° intentos</td>
+            </tr>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario['nom_usr'] }}  {{ usuario['ap_usr'] }}</td>
+                <td>{{ usuario['cont'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

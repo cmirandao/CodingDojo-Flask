@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main role="main">
+        <section class="jumbotron text-center">
+                <h1 class="jumbotron-heading">Welcome to the Great Number Game!!!</h1>
+                <p class="lead text-muted">I am thinking of a number between 1 and 100</p>
+        </section>
+        <div class="container {{color}} text-center border-dark rounded" {{visible}}>
+            <h4>{{mensaje_solucion}}</h4>
+            <p>Numero de intentos: {{cont}}</p>
+            <div {{visible3}}>
+                <form action="/registrar" method="post">
+                    <h4 class="text-info">Registra tu record</h4>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nom_usr">Nombre</label>
+                            <input type="text" class="form-control" name="nom_usr" placeholder="" value="" onkeyup="stateHandle()" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="ap_usr">Apellido</label>
+                            <input type="text" class="form-control" name="ap_usr" placeholder="" value="" onkeyup="stateHandle()" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning btn-lg btn-block rounded" type="submit">Registrate</button>
+                </form>
+            </div>
+            <a class="btn btn-info btn-lg btn-block" href="/nuevo_juego" {{btn_visible}}>Play again</a>
+        </div>
+        <div class="container text-center border-dark rounded" {{visible2}}>
+            <form action='/adivinar' method='post'>
+                <h4 class="text-warning">Take a guest!!!</h4>
+                <div class="row">
+                    <div class="mb-3">
+                        <input class="border-primary rounded" id="mensaje" type="text" name="num_guess" placeholder="" value="" onkeyup="stateHandle()" required>
+                    </div>
+                </div>
+                <button class="btn btn-warning btn-lg btn-block rounded" type="submit">Guess</button>
+            </form>
+            <p class="lead text-muted">Solo tienes 5 intentos</p>
+            <p>
+                <a class="btn btn-secondary btn-lg btn-block" href="/ver_marcador">Ver Marcador</a>
+            </p>
+        </div>
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+</body>
+</html>
