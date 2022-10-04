@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Dojo</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main role="main">
+        <div class="container border-dark rounded">
+            <h4 class="text-primary">{{nombre}}</h4>
+            <div class="row">
+                <p><label class="text-white" for="loc_usr">Locaci&oacute;n del Dojo: {{locacion}}</label></p>
+                <p><label class="text-white" for="lg_usr">Lenguaje Favorito: {{lenguaje}}</label></p>
+                <p><label class="text-white" for="comm_usr">Comentarios: {{comentario}}</label></p>
+            </div>
+            <a class="text-primary" href="/volver">Home</a>
+        </div>
+    </main>
+</body>
+</html>

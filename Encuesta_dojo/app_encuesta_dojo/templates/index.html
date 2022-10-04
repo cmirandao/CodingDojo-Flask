@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Dojo</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main role="main">
+        <div class="container border-dark rounded">
+            <form action='/process' method='post'>
+                <h4 class="text-warning text-center">Encuesta Dojo</h4>
+                <div class="row">
+                    <div class="mb-3">
+                        <label class="text-white" for="nom_usr">Nombre:</label>
+                        <input class="rounded" id="nombre" type="text" name="nombre" placeholder="" value="" onkeyup="stateHandle()" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-white" for="loc_usr">Locaci&oacute;n:</label>
+                        <select class="rounded" name="locacion" id="locacion" required>
+                            <option value="" disabled selected hidden>--Selecciona una locaci&oacute;n--</option>
+                            <option value="Santiago">Santiago</option>
+                            <option value="Valparaiso">Valparaiso</option>
+                            <option value="Antofagasta">Antofagasta</option>
+                            <option value="Concepci&oacute;n">Concepci&oacute;n</option>
+                            <option value="Punta Arenas">Punta Arenas</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-white" for="lg_usr">Lenguaje Favorito:</label>
+                        <select class="rounded" name="lenguaje" id="lenguaje" required>
+                            <option value="" disabled selected hidden>--Selecciona un lenguaje favorito--</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="C#">C#</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-white" for="comm_usr">Comentarios:</label>
+                        <textarea class="rounded" name="txarea" id="txarea" cols="30" rows="10" required></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-warning btn-lg btn-block rounded" type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+</body>
+</html>
